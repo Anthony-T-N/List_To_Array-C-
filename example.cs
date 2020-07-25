@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 // Gives access to List<T> Class & Dictionary<TKey,TValue> Class
 
+// Following example used to take specific elements from an array and add it to a list.
 public static class placeholder
 {
   public static int[] Capitals(string word)
   {
     List<int> index_list = new List<int>();
-		for (int i = 0; i <= word.Length - 1; i++)
+    for (int i = 0; i <= word.Length - 1; i++)
     {
       if (word[i] == char.ToUpper(word[i]))
       {
