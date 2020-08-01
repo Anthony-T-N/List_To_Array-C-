@@ -29,7 +29,7 @@ public static class placeholder
 using System;
 using System.Collections.Generic;
 
-public class Kata
+public class ---
 {
   public static int DuplicateCount(string str)
   {
@@ -58,5 +58,45 @@ public class Kata
       }
     }
     return total_duplicates;
+  }
+}
+
+// ===================================================================================================================
+
+using System.Collections.Generic;
+
+public class ---
+{
+  public static string DuplicateEncode(string word)
+  {
+    string str = word;
+    Dictionary<char, int> count_dict = new Dictionary<char, int>(); 
+    for (int i = 0; i <= str.Length - 1; i++)
+    {
+      if (count_dict.ContainsKey(char.ToLower(str[i])))
+      {
+        count_dict[char.ToLower(str[i])] += 1;
+      }
+      else
+      {
+        count_dict.Add(char.ToLower(str[i]), 1);
+      }
+    }
+    char[] charArr = str.ToCharArray();
+    for (int i = 0; i <= charArr.Length - 1; i++)
+    {
+      if (count_dict[char.ToLower(charArr[i])] <= 1)
+      {
+        System.Console.WriteLine(charArr[i]);
+        charArr[i] = '(';
+      }
+      else
+      {
+        charArr[i] = ')';
+      }
+    }
+    // Array of characters to string.
+    str = new string(charArr);
+    return str;
   }
 }
