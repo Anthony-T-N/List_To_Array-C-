@@ -100,3 +100,38 @@ public class ---
     return str;
   }
 }
+// ===================================================================================================================
+using System.Collections.Generic;
+
+public static class Kata
+{
+  public static string AlphabetPosition(string text)
+  {
+    Dictionary<char, int> count_dict = new Dictionary<char, int>()
+    {
+      	{'a', 1}, {'b', 2}, {'c', 3}, {'d', 4}, {'e', 5}, 
+        {'f', 6}, {'g', 7}, {'h', 8}, {'i', 9}, {'j', 10}, 
+        {'k', 11}, {'l', 12}, {'m', 13}, {'n', 14}, {'o', 15}, {'p', 16}, 
+        {'q', 17}, {'r', 18}, {'s', 19}, {'t', 20}, {'u', 21}, 
+        {'v', 22}, {'w', 23}, {'x', 24}, {'y', 25}, {'z', 26}
+    };
+    /*
+    foreach(var kvp in count_dict)
+    {
+      System.Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
+    }
+    */
+    List<string> index_list = new List<string>();
+    for (int i = 0; i <= text.Length - 1; i++)
+    {
+      // System.Console.WriteLine(text[i]);
+      if (count_dict.ContainsKey(char.ToLower(text[i])))
+      {
+        index_list.Add(count_dict[char.ToLower(text[i])].ToString());
+      }
+    }
+    //Converting string list to string.
+    text = string.Join(" ", index_list);
+    return text;
+  }
+}
