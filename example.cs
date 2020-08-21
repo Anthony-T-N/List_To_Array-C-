@@ -103,7 +103,7 @@ public class ---
 // ===================================================================================================================
 using System.Collections.Generic;
 
-public static class Kata
+public static class ---
 {
   public static string AlphabetPosition(string text)
   {
@@ -133,5 +133,50 @@ public static class Kata
     //Converting string list to string.
     text = string.Join(" ", index_list);
     return text;
+  }
+}
+
+// ===================================================================================================================
+
+using System.Collections.Generic;
+
+public static class ---
+{
+  public static string GetOrder(string input)
+  {
+    Dictionary<string, int> count_dict = new Dictionary<string, int>()
+    {
+    	{"burger", 0}, {"fries", 0}, {"chicken", 0}, {"pizza", 0}, 
+      {"sandwich", 0}, {"onionrings", 0}, {"milkshake", 0}, {"coke", 0}
+    };
+    Dictionary<int, string> menu_dict = new Dictionary<int, string>()
+    {
+    	{1, "Burger"}, {2, "Fries"}, {3, "Chicken"}, {4, "Pizza"}, 
+      {5, "Sandwich"}, {6, "Onionrings"}, {7, "Milkshake"}, {8, "Coke"}
+    };
+    string current_string = "";
+    for (int i = 0; i <= input.Length - 1; i++)
+    {
+      System.Console.WriteLine(input[i]);
+      current_string += input[i];
+      if (count_dict.ContainsKey(current_string))
+      {
+        System.Console.WriteLine(current_string);
+        count_dict[current_string] += 1;
+        current_string = "";
+      }
+    }
+    //string split_list = " ";
+    for (int i = 0; i <= menu_dict.Count - 1; i++)
+    {
+      if (menu_dict.ContainsKey(i))
+      {
+        System.Console.WriteLine(menu_dict[i]);
+        System.Console.WriteLine(count_dict[menu_dict[i].ToLower()]);
+      }
+      
+      System.Console.WriteLine("");
+    }
+  	return string.Empty;
   }
 }
