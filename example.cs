@@ -166,17 +166,20 @@ public static class ---
         current_string = "";
       }
     }
-    //string split_list = " ";
-    for (int i = 0; i <= menu_dict.Count - 1; i++)
+    string split_list = "";
+    for (int i = 0; i <= menu_dict.Count; i++)
     {
       if (menu_dict.ContainsKey(i))
       {
-        System.Console.WriteLine(menu_dict[i]);
+        System.Console.WriteLine("MENU_DICT: " + menu_dict[i]);
         System.Console.WriteLine(count_dict[menu_dict[i].ToLower()]);
+        for (int j = 1; j <= count_dict[menu_dict[i].ToLower()]; j++)
+        {
+          split_list += menu_dict[i] + " ";
+        }
       }
-      
-      System.Console.WriteLine("");
+      System.Console.WriteLine(split_list);
     }
-  	return string.Empty;
+  	return split_list.TrimEnd();
   }
 }
